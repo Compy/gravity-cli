@@ -1,0 +1,36 @@
+{
+  "name": "gravity-cli",
+  "version": "0.0.1",
+  "description": "A command line interface for the Gravity SaaS boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/compy/gravity-cli.git"
+  },
+  "keywords": [
+    "Gravity",
+    "SaaS",
+    "Boilerplate",
+    "SaaS",
+    "boilerplate"
+  ],
+  "author": "Jimmy Lipham <jimmy@repobox.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/compy/gravity-cli/issues"
+  },
+  "homepage": "https://github.com/compy/gravity-cli#readme",
+  "bin": {
+    "gravity": "./index.js"
+  },
+  "dependencies": {
+    "colors": "^1.3.3",
+    "follow-redirects": "^1.7.0",
+    "q": "^1.5.1",
+    "tar": "^4.4.10",
+    "tmp": "^0.1.0"
+  }
+}
