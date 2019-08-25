@@ -63,7 +63,12 @@ function downloadTest(uri, filename) {
     } else if (response.headers.location) {
       deferred.resolve(downloadTest(response.headers.location, filename));
     } else {
-      deferred.reject(new Error(response.statusCode + ' ' + response.statusMessage));
+      var statusMessage = response.statusCode + ' ' + response.statusMessage;
+      if (response.statusCode === 402) {
+        statusMessage = 'You do not appear to have a license to this package.';
+      }
+
+      deferred.reject(new Error(statusMessage));
     }
   }).on('error', onError);
   return deferred.promise;
