@@ -54,7 +54,7 @@ function downloadTest(uri, filename) {
   if (urlInfo.host == 'repobox.io') {
     urlInfo.headers["Authorization"] = "Bearer " + config.licenseKey;
   }
-  let req = require(protocol).get(urlInfo, function (response) {
+  require(protocol).get(urlInfo, function (response) {
     if (response.statusCode >= 200 && response.statusCode < 300) {
       var fileStream = fs.createWriteStream(filename);
       fileStream.on('error', onError);
@@ -63,7 +63,6 @@ function downloadTest(uri, filename) {
     } else if (response.headers.location) {
       deferred.resolve(downloadTest(response.headers.location, filename));
     } else {
-      console.log(req);
       deferred.reject(new Error(response.statusCode + ' ' + response.statusMessage));
     }
   }).on('error', onError);
